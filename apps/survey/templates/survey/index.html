@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    {% load staticfiles %}
+    <link rel='stylesheet' href='{% static 'survey/style.css' %}'>
+</head>
+<body>
+    <div id='container'>
+    <div id='box'>
+        <form action="/survey" method="post">
+            {% csrf_token %}
+            <label for="name"> Your Name:
+                <input type="text" id="name" name="name" />
+            </label>
+            <label for="Location"> Dojo Location:
+                <select name='location'>
+                    <option value="Bellevue">Bellevue</option>
+                    <option value="LA">LA</option>
+                    <option value="San Jose">San Jose</option>
+                </select>
+            </label>
+            <label for="language"> Favorite Language:
+                <select name='language'>
+                    <option value="Python">Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="IOS">IOS</option>
+                </select>
+            </label>
+            <label for="comment"> Comment (optional):
+                <textarea name="comment"></textarea>
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    </div>
+</body>
+</html>
